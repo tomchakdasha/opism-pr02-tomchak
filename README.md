@@ -227,39 +227,35 @@ Content-Type: text/html; charset=iso-8859-1
 **Команда:**
 
 ```
-curl -v http://icann.org/
+curl -v --http1.1 http://icann.org/ -o /dev/nul
 ```
 
 **Вивід:**
 
-```
-root@ubuntu:~$ curl -v http://icann.org/
-* Host icann.org:80 was resolved.
+```root@ubuntu:~$ curl -v --http1.1 http://icann.org/ -o /dev/nul
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Host icann.org:80 was resolved.
 * IPv6: 2001:500:88:200::7
 * IPv4: 192.0.43.7
 *   Trying 192.0.43.7:80...
 * Connected to icann.org (192.0.43.7) port 80
-> GET / HTTP/1.1
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0> GET / HTTP/1.1
 > Host: icann.org
 > User-Agent: curl/8.5.0
 > Accept: */*
 > 
 < HTTP/1.1 301 Moved Permanently
-< Date: Wed, 30 Sep 2026 07:19:25 GMT
+< Date: Mon, 05 Oct 2026 19:17:53 GMT
 < Server: Apache
 < Location: https://www.icann.org/
 < Cache-Control: max-age=345600
-< Expires: Sun, 04 Oct 2026 07:19:25 GMT
+< Expires: Fri, 09 Oct 2026 19:17:53 GMT
 < Content-Length: 270
 < Content-Type: text/html; charset=iso-8859-1
 < 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head>
-<title>301 Moved Permanently</title>
-</head><body>
-<h1>Moved Permanently</h1>
-<p>The document has moved <a href="https://www.icann.org/">here</a>.</p>
-</body></html>
+{ [270 bytes data]
+100   270  100   270    0     0    923      0 --:--:-- --:--:-- --:--:--   921
 * Connection #0 to host icann.org left intact
 ```
 
